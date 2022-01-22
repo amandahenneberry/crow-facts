@@ -44,18 +44,6 @@ class GuestHome extends React.Component{
     )
   }
 }
-//   const {username} = props
-
-  
-
-/**
- * CONTAINER
- */
-// const mapState = state => {
-//   return {
-//     username: state.auth.username
-//   }
-// }
 
 // export default connect(mapState)(UserHome)
 export default (GuestHome)
