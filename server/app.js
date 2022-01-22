@@ -3,6 +3,11 @@ const express = require('express')
 const morgan = require('morgan')
 const app = express()
 module.exports = app
+//if I'm in development (NOT prduction) environment, I want access to the secrets.js file inside of my local machine
+//(each dev should have one^^!!)
+if (process.env.NODE_ENV !== 'production') require('../secrets')
+console.log('log my environment variables', process.env)
+const JWT = process.env.JWT;
 
 // logging middleware
 app.use(morgan('dev'))
