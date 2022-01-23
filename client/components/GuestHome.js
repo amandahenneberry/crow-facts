@@ -1,9 +1,15 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+// const sfx = {
+//   caw: new Howl({
+//     src: ['.../public/howler-crow-caw.mp3']
+//   })
+// }
 /**
  * COMPONENT
  */
+
 
 
 class GuestHome extends React.Component{
