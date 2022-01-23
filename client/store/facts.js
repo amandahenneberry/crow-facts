@@ -40,14 +40,12 @@ export const setFact = (fact) => {
 }
 
 //REDUCER
-const initialState = {
-    facts:[]
-};
+const initialState = {};
 
 export default function factsReducer(state = initialState, action) {
   switch (action.type) {
     case SET_FACTS:
-      return {...state, facts: action.facts};
+      return action.facts
     case SET_FACT:
       return action.facts
     default:
