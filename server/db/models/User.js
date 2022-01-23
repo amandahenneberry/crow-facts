@@ -2,11 +2,15 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt');
-const axios = require('axios');
+// const axios = require('axios');
 
 const SALT_ROUNDS = 5;
 
 const User = db.define('user', {
+  isAdmin: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
+  },
   username: {
     type: Sequelize.STRING,
     unique: true,
@@ -14,7 +18,19 @@ const User = db.define('user', {
   },
   password: {
     type: Sequelize.STRING,
-  }
+  },
+  email: {
+    type: Sequelize.STRING,
+    validate: {
+        notEmpty: true,
+        isEmail: true
+    }
+  },
+  image:{
+    type: Sequelize.STRING,
+    allowNull: false,
+    defaultValue: 'https://crowdesign.com/wp-content/uploads/2017/07/Crow_Standing.png'
+  },
 })
 
 module.exports = User

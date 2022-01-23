@@ -1,6 +1,6 @@
 'use strict'
 
-const {db, models: {User} } = require('../server/db')
+const {db, models: {User, Fact} } = require('../server/db')
 
 /**
  * seed - this function clears the database, updates tables to
@@ -14,17 +14,35 @@ async function seed() {
   const users = await Promise.all([
     User.create({ username: 'cody', password: '123' }),
     User.create({ username: 'murphy', password: '123' }),
+    User.create({
+      isAdmin: true,
+      username: "amanda",
+      password: "123",
+      // userType: "Admin",
+      email: "amandahenneberry@icloud.com",
+    }),
   ])
-
+  
   console.log(`seeded ${users.length} users`)
-  console.log(`seeded successfully`)
-  return {
-    users: {
-      cody: users[0],
-      murphy: users[1]
-    }
-  }
+  console.log(`seeded successfully`);
+
+  //Creating Facts
+const facts = await Promise.all([
+  Fact.create({ fact: 'fact1', source: 'source1'}),
+  Fact.create({ fact: 'fact2', source: 'source2'}),
+  Fact.create({ fact: 'fact3', source: 'source3'}),
+  Fact.create({ fact: 'fact4', source: 'source4'}),
+  Fact.create({ fact: 'fact5', source: 'source5'}),
+  ])
+  
+  console.log(`seeded ${facts.length} facts`)
+  console.log(`seeded successfully`);
+  
 }
+
+
+
+
 
 /*
  We've separated the `seed` function from the `runSeed` function.
