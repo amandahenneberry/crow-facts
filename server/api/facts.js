@@ -14,6 +14,7 @@ router.get("/", async (req, res, next) => {
     }
   });
 
+
 // get single fact
 router.get('/:id', async(req, res, next) => {
     try {
@@ -23,6 +24,16 @@ router.get('/:id', async(req, res, next) => {
       next(err);
     }
   });
+
+  // get single fact's source
+// router.get('/:id', async(req, res, next) => {
+//   try {
+//     const source = await Fact.findByPk(req.params.id)
+//     res.send(source);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
   //submit a fact 
   router.post('/addFact', async(req, res) => {

@@ -23,7 +23,7 @@ class GuestHome extends React.Component{
     const {data} = await axios.get('/api/facts')
     this.setState({
       facts: data
-    })
+    });
     console.log()
   }
 
@@ -47,16 +47,17 @@ class GuestHome extends React.Component{
     this.setState.sound = true;
     this.setState({currentFact: this.state.facts[index]});
     this.soundPlay(audioClip.sound)
+    console.log('source??', this.state.facts[index].source)
   }
 
   render(){
     return (
       <div>
-        <h3>click the crow below...</h3>
         <span>
           <button type="button" onClick={() => this.handleClick()}><img src="./img/black-crow.png" width="200"></img></button>
-          <p id ='fact'><em>{this.state.currentFact.fact}</em></p>
-          {/* <a href={this.source}>source</a> */}
+          <div><h2 id ='fact'><em>{this.state.currentFact.fact}</em></h2>
+          <h6><a href={this.state.currentFact.source} target="_blank">{this.state.currentFact.source}</a></h6>
+          <h5>click the crow for a new fact</h5></div>
         </span>
       </div>
     )
