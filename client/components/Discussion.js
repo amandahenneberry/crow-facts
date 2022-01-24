@@ -6,7 +6,7 @@ import { fetchSingleDiscussion } from '../store/singleDiscussion';
 class Discussion extends React.Component{
   componentDidMount () {
     try {
-      this.props.loadSingleDiscussion(this.props.match.params.storyId)
+      this.props.loadSingleDiscussion(this.props.match.params.discussionId)
     }
     catch (error) {
       console.error(error)
@@ -14,9 +14,11 @@ class Discussion extends React.Component{
   }
       render(){
         const discussion = this.props.discussion;
+        console.log(this.props.discussion)
         return (
           <div>
               <h1>Discussion Page Placeholder...</h1>
+              {/* <h2>{discussion.topic}</h2> */}
           </div>
       );
     }
@@ -31,8 +33,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadSingleDiscussion: (id) => dispatch(fetchSingleDiscussion(id))
+    loadSingleDiscussion: (discussionId) => dispatch(fetchSingleDiscussion(discussionId))
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Discussion)
+// export default (Discussion)

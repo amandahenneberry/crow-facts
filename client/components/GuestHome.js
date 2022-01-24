@@ -37,14 +37,6 @@ class GuestHome extends React.Component{
     sound.play();
   }
   handleClick(){
-    // const index = Math.floor(Math.random()* this.state.facts.length);
-    // this.setState({currentFact: this.state.facts[index]})
-
-    // const index = Math.floor(Math.random()* this.state.facts.length);
-    // this.setState({currentFact: this.state.facts.filter(function(fact){
-    //   return fact !== [index]
-    // })})
-
     const index = Math.floor(Math.random()* this.state.facts.length);
     this.setState.sound = true;
     this.setState({currentFact: this.state.facts[index]});

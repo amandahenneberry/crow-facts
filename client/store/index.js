@@ -4,8 +4,9 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import auth from './auth'
 import factsReducer from './facts'
+import singleDisReducer from './singleDiscussion'
 
-const reducer = combineReducers({ auth, factsReducer })
+const reducer = combineReducers({ auth, factsReducer, singleDisReducer })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )

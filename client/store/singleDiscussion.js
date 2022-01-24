@@ -9,10 +9,10 @@ const setSingleDiscussion = (discussion) => {
   }
 }
 
-export const fetchSingleDiscussion = (id) => {
+export const fetchSingleDiscussion = (discussionId) => {
   return async (dispatch) => {
     try {
-      const {data} = await axios.get(`/api/discussions/${id}`)
+      const {data} = await axios.get(`/api/discussions/${discussionId}`)
       dispatch(setSingleDiscussion(data))
     } catch (err) {
       console.log(err)
@@ -22,7 +22,7 @@ export const fetchSingleDiscussion = (id) => {
 
 const initialState = {}
 
-export default (state = initialState, action) => {
+ const singleDisReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_SINGLE_DISCUSSION:
       return action.discussion
@@ -30,3 +30,5 @@ export default (state = initialState, action) => {
       return state
   }
 }
+
+export default singleDisReducer;
