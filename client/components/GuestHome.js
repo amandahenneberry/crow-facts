@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React from 'react'
 import {connect} from 'react-redux'
 
@@ -16,11 +17,19 @@ class GuestHome extends React.Component{
   constructor(){
     super()
     this.state = {
-      facts: ['fact 1', 'fact 2', 'fact 3', 'fact 4', 'fact 5', 'fact 6', 'fact 7', 'fact 8', 'fact 9', 'fact 10'],
-      currentFact: 'click for \nCAW A\n facts',
+      facts: [],
+      currentFact: {},
       sound: false
     }
     this.handleClick = this.handleClick.bind(this)
+  }
+
+  async componentDidMount () {
+    const {data} = await axios.get('/api/facts')
+    this.setState({
+      facts: data
+    })
+    console.log()
   }
 
   handleClick(){
@@ -42,7 +51,7 @@ class GuestHome extends React.Component{
       <div>
         <h3>Welcome CAW CcccAW</h3>
         <div>
-          <h2>{this.state.currentFact}</h2>
+          <h2>{this.state.currentFact.fact}</h2>
           <button type="button" onClick={() => this.handleClick()}>CLICK ME</button>
 
         </div>

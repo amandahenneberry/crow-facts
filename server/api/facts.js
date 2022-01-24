@@ -15,10 +15,10 @@ router.get("/", async (req, res, next) => {
   });
 
 // get single fact
-router.get('/:factId', async(req, res, next) => {
+router.get('/:id', async(req, res, next) => {
     try {
-      const fact = await Fact.findByPk(req.params.factId)
-      res.json(fact);
+      const fact = await Fact.findByPk(req.params.id)
+      res.send(fact);
     } catch (err) {
       next(err);
     }

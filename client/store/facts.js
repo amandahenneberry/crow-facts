@@ -28,11 +28,11 @@ export const fetchFacts = () => {
   };
 };
 
-export const setFact = (fact) => {
+export const setFact = (id) => {
   return async (dispatch) => {
     try{
-      const { data: singleFact } = await axios.get(`/api/facts/${fact.id}`)
-      dispatch(setSingleFact(singleFact));
+      const { data } = await axios.get(`/api/facts/${id}`)
+      dispatch(setSingleFact(data));
     }catch (err) {
       console.log(err)
     }
@@ -40,15 +40,17 @@ export const setFact = (fact) => {
 }
 
 //REDUCER
-const initialState = {};
+const initialState = [];
 
-export default function factsReducer(state = initialState, action) {
+const factsReducer=(state = initialState, action) =>{
   switch (action.type) {
     case SET_FACTS:
       return action.facts
     case SET_FACT:
-      return action.facts
+      return action.fact
     default:
       return state;
   }
 }
+
+export default factsReducer;
