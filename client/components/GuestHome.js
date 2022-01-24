@@ -14,7 +14,9 @@ class GuestHome extends React.Component{
     this.state = {
       facts: [],
       currentFact: {},
-      sound: false
+      sound: false,
+      clicked: false,
+      user: false
     }
     this.handleClick = this.handleClick.bind(this)
   }
@@ -46,8 +48,15 @@ class GuestHome extends React.Component{
     const index = Math.floor(Math.random()* this.state.facts.length);
     this.setState.sound = true;
     this.setState({currentFact: this.state.facts[index]});
-    this.soundPlay(audioClip.sound)
-    console.log('source??', this.state.facts[index].source)
+    this.soundPlay(audioClip.sound);
+    console.log('source??', this.state.facts[index].source);
+    this.setState.clicked = true;
+  }
+
+  alert(){
+    //if (!user), will alert when 'DISCUSS!' link is clicked.
+    this.alert('You must be logged in to enter discussions!')
+    //link: login OR sign-up
   }
 
   render(){

@@ -1,5 +1,13 @@
 body {
-  font-family: sans-serif;
+  font-family: sans-serif
+}
+
+h1{
+  font-family: cursive;
+}
+
+h2{
+  font-family:serif
 }
 
 a {
@@ -11,6 +19,7 @@ label {
 }
 
 nav a {
+  /* display: inline-block; */
   display: inline-block;
   margin: 1em;
 }
@@ -22,9 +31,11 @@ form div {
 
 
 
-fact{
+
+
+/* fact{
   display: inline-block;
     width:160px;
     height:160px;
     border: 1px solid green;
-}
+} */

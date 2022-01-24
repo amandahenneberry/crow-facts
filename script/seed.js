@@ -1,6 +1,7 @@
 'use strict'
 
-const {db, models: {User, Fact} } = require('../server/db')
+const {db, models: {User, Fact, Discussion} } = require('../server/db')
+//for 'discussions' content
 
 /**
  * seed - this function clears the database, updates tables to
@@ -27,7 +28,7 @@ async function seed() {
   console.log(`seeded successfully`);
 
   //Creating Facts
-const facts = await Promise.all([
+const facts =  await Promise.all([
   Fact.create({ fact: 'When a crow dies, its neighbors may have a funeral', source: 'https://www.mentalfloss.com/article/504722/12-fascinating-facts-about-crows'}),
   Fact.create({ fact: `Proportionally, some crows' brains are bigger than yours`, source: 'https://www.mentalfloss.com/article/504722/12-fascinating-facts-about-crows'}),
   Fact.create({ fact: 'Crows have regional dialects', source: 'https://www.mentalfloss.com/article/504722/12-fascinating-facts-about-crows'}),
@@ -40,7 +41,26 @@ const facts = await Promise.all([
   console.log(`seeded ${facts.length} facts`)
   console.log(`seeded successfully`);
   
+
+
+//Creating Discussions
+
+const discussions = await Promise.all([
+  Discussion.create({ topic: 'When a crow dies, its neighbors may have a funeral', factId: 1}),
+  Discussion.create({ topic: `Proportionally, some crows' brains are bigger than yours`, factId: 2}),
+  Discussion.create({ topic: 'Crows have regional dialects', factId: 3}),
+  Discussion.create({ topic: 'Some crows can read traffic lights', factId: 4}),
+  Discussion.create({ topic: 'Crows can recognize your face - and hold a grudge.', factId: 5}),
+  Discussion.create({ topic: 'New Caledonian Crows make and use tools', factId: 6}),
+  Discussion.create({ topic: 'Crows fight off predators by ganging up on them', factId: 7}),
+])
+  
+  console.log(`seeded ${discussions.length} discussions`)
+  console.log(`seeded successfully`);
+  
 }
+
+
 
 
 
