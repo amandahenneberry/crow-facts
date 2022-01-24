@@ -52,12 +52,12 @@ class GuestHome extends React.Component{
   render(){
     return (
       <div>
-        <h3>Welcome CAW CcccAW</h3>
-        <div>
-          <h2>{this.state.currentFact.fact}</h2>
-          <button type="button" onClick={() => this.handleClick()}>{audioClip.label}</button>
-
-        </div>
+        <h3>click the crow below...</h3>
+        <span>
+          <button type="button" onClick={() => this.handleClick()}><img src="./img/black-crow.png" width="200"></img></button>
+          <p id ='fact'><em>{this.state.currentFact.fact}</em></p>
+          {/* <a href={this.source}>source</a> */}
+        </span>
       </div>
     )
   }

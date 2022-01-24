@@ -28,12 +28,14 @@ async function seed() {
 
   //Creating Facts
 const facts = await Promise.all([
-  Fact.create({ fact: 'fact1', source: 'source1'}),
-  Fact.create({ fact: 'fact2', source: 'source2'}),
-  Fact.create({ fact: 'fact3', source: 'source3'}),
-  Fact.create({ fact: 'fact4', source: 'source4'}),
-  Fact.create({ fact: 'fact5', source: 'source5'}),
-  ])
+  Fact.create({ fact: 'When a crow dies, its neighbors may have a funeral', source: 'https://www.mentalfloss.com/article/504722/12-fascinating-facts-about-crows'}),
+  Fact.create({ fact: `Proportionally, some crows' brains are bigger than yours`, source: 'https://www.mentalfloss.com/article/504722/12-fascinating-facts-about-crows'}),
+  Fact.create({ fact: 'Crows have regional dialects', source: 'https://www.mentalfloss.com/article/504722/12-fascinating-facts-about-crows'}),
+  Fact.create({ fact: 'Some crows can read traffic lights', source: 'https://www.mentalfloss.com/article/504722/12-fascinating-facts-about-crows'}),
+  Fact.create({ fact: 'Crows can recognize your face - and hold a grudge.', source: 'https://www.mentalfloss.com/article/504722/12-fascinating-facts-about-crows'}),
+  Fact.create({ fact: 'New Caledonian Crows make and use tools', source: 'https://www.mentalfloss.com/article/504722/12-fascinating-facts-about-crows'}),
+  Fact.create({ fact: 'Crows fight off predators by ganging up on them', source: 'https://www.mentalfloss.com/article/504722/12-fascinating-facts-about-crows'}),
+])
   
   console.log(`seeded ${facts.length} facts`)
   console.log(`seeded successfully`);

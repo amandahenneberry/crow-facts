@@ -19,3 +19,12 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+
+
+fact{
+  display: inline-block;
+    width:160px;
+    height:160px;
+    border: 1px solid green;
+}
