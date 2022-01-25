@@ -14,7 +14,7 @@ a:hover {
 
 body {
   font-family: serif;
-  background: url('tree2.png');
+  background: url('tree99.png');
   background-attachment: scroll, local;  
   margin: auto;
   height: 100vh;
@@ -28,12 +28,12 @@ i {
   font-size: 2em;
 }
 
-img {
+/* img {
   max-height: 100px;
   max-width: 100px;
   border-radius: 5px;
   margin-right: 10px;
-}
+} */
 
 h1{
   font-family: cursive;
@@ -46,18 +46,29 @@ h2{
 label {
   display: block;
 }
-
+nav {
+  width: 100%;
+  background-color: rgba(10, 10, 10, 0.678);
+  overflow: auto;
+}
 nav a {
-  
-  display: inline-block;
-   width: 100%;
-  /*height: 50px; */
-  /* display: flex; */
-  margin: auto;
-  text-align: center;
-  /* border: 1px solid rgb(79, 128, 0); */
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 25%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+  text-align: center; /* If you want the text to be centered */
 }
 
+nav a:hover{
+  background-color: rgba(5, 3, 0, 0.445);
+
+}
+
+nav a.active{
+  background-color: #04AA6D;
+}
 form div {
   margin: 2em;
   display: inline-block;
@@ -177,4 +188,22 @@ td {
 
 .mr1 {
   margin-right: 1em;
+}
+
+.crow-button {
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(255, 254, 254);
+  border: 0px;
+
+}
+.crow-button {
+  transition-duration: 0.4s;
+}
+
+.crow-button:hover {
+  background-color: #04aa6da2; /* Green */
+  background-image: url('./img/black-crow-hover.png');
+  color: white;
+  /* background: url("./img/black-crow-hover.png") no-repeat; */
 }
