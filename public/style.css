@@ -14,7 +14,7 @@ a:hover {
 
 body {
   font-family: serif;
-  background: url('tree99.png');
+  background: url('./img/crow_background.png');
   background-attachment: scroll, local;  
   margin: auto;
   height: 100vh;
@@ -87,7 +87,7 @@ i.fa {
 }
 
 i.fa:hover {
-  color: #00aa00;
+  color: #00aa006c;
 }
 
 td {

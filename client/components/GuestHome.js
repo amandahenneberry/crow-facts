@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import {Howl} from 'howler'
+import { Link } from 'react-router-dom'
 // https://algorithmic-8ball.neocities.org/crow_caw.mp3
 
 const audioClip = {
@@ -68,14 +69,15 @@ class GuestHome extends React.Component{
               img: '/img/black-crow.png'
             })
           }} width="250"></img></button>
-          <div><h1 id ='fact'><mark>{this.state.currentFact.fact}</mark></h1>
-          <h5><a href={this.state.currentFact.source} target="_blank">{this.state.currentFact.source}</a></h5>
-          <h3>click the crow for a new fact!</h3>
-          <h6>To join discussions, please <strong><em><a href='/login' target="_blank">login</a></em></strong> or <strong><em><a href='/signup' target="_blank">sign-up</a>!</em></strong></h6></div>
+          <div>
+            <h1 id ='fact'><mark>{this.state.currentFact.fact}</mark></h1>
+            <h5><a href={this.state.currentFact.source} target="_blank">{this.state.currentFact.source}</a></h5>
+            <h3>click the crow for a new fact!</h3>
+          <h6>To join discussions, please <strong><em><a href='/login' target="_blank">login</a></em></strong> or <strong><em><a href='/signup' target="_blank">sign-up</a>!</em></strong></h6>
+          </div>
           </div>
           </div>
           {/* <span>To join discussions, please <strong><em><a href='/login' target="_blank">login</a></em></strong> or <strong><em><a href='/signup' target="_blank">sign-up</a>!</em></strong></span> */}
-
       </div>
     )
   }

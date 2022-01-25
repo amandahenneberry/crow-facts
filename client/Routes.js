@@ -6,6 +6,7 @@ import UserHome from './components/UserHome';
 import GuestHome from './components/GuestHome';
 import AllFacts from './components/AllFacts';
 import Discussion from './components/Discussion';
+import AddFact from './components/AddFact';
 import {me} from './store'
 
 /**
@@ -23,8 +24,14 @@ class Routes extends Component {
       <div>
         {isLoggedIn ? (
           <Switch>
-            <Route path="/uhome" component={UserHome} />
-            <Redirect to="/uhome" />
+            <Route path="/" component={UserHome} />
+            <Route path='/discussions' component={Discussion} />
+            <Route path='/allFacts' component={AllFacts} />
+            <Route path='/addFact' component={AddFact} />
+
+
+
+            <Redirect to="/" />
           </Switch>
         ) : (
           <Switch>
