@@ -33,7 +33,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadSingleDiscussion: (discussionId) => dispatch(fetchSingleDiscussion(discussionId))
+    loadSingleDiscussion: (discussionId) => dispatch(fetchSingleDiscussion(discussionIdnp))
   }
 }
 
