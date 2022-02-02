@@ -22,7 +22,7 @@ class AllFacts extends React.Component{
         console.log(facts)
         return (
           <div>
-              <h1>Facts {console.log('props index?', this.props.facts.length)}</h1>
+              <h1>Facts {console.log('props index?', facts.length)}</h1>
               <div>
                   {facts.map(fact=> (
                       <div key={fact.id}>

@@ -40,7 +40,6 @@ class UserHome extends React.Component{
   }catch(err){
     console.log('error getting discussions')
   }
-
   try{
 
     const {data} = await axios.get('/api/facts')
@@ -96,11 +95,12 @@ class UserHome extends React.Component{
             })
           }} width="250"></img></button>
           <div>
-            <h1 id ='fact'><mark>{this.state.currentFact.fact}</mark></h1>
+            <div className ='fact'> <h1>{this.state.currentFact.fact}</h1>
             <h5><a href={this.state.currentFact.source} target="_blank">{this.state.currentFact.source}</a></h5>
             <h3>{this.state.clickedText}</h3>
             <p><Link to={'./discussions'}>Discuss!</Link></p>
           {/* <h6>To join discussions, please <strong><em><a href='/login' target="_blank">login</a></em></strong> or <strong><em><a href='/signup' target="_blank">sign-up</a>!</em></strong></h6> */}
+          </div>
           </div>
           </div>
         </div>

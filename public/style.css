@@ -207,3 +207,8 @@ td {
   color: white;
   /* background: url("./img/black-crow-hover.png") no-repeat; */
 }
+
+.fact {
+  padding: 30px;
+  background-color: #fdfdfd; /* Green */
+}
