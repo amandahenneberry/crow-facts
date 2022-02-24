@@ -2,21 +2,12 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchFacts} from '../store/facts'
 
-// const sfx = {
-//   caw: new Howl({
-//     src: ['.../public/howler-crow-caw.mp3']
-//   })
-// }
-/**
- * COMPONENT
- */
-
-
-
 class AllFacts extends React.Component{
     componentDidMount(){
         this.props.getFacts();
       }
+
+      
       render() {
         const facts = this.props.facts || [];
         console.log(facts)

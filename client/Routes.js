@@ -5,8 +5,8 @@ import { Login, Signup } from './components/AuthForm';
 import UserHome from './components/UserHome';
 import GuestHome from './components/GuestHome';
 import AllFacts from './components/AllFacts';
-import Discussion from './components/Discussion';
 import AddFact from './components/AddFact';
+import Discussion from './components/Discussion';
 import {me} from './store'
 
 /**
@@ -24,22 +24,21 @@ class Routes extends Component {
       <div>
         {isLoggedIn ? (
           <Switch>
-            <Route path="/" component={UserHome} />
+            <Route exact path='/' component={UserHome} />
             <Route path='/discussions' component={Discussion} />
             <Route path='/allFacts' component={AllFacts} />
             <Route path='/addFact' component={AddFact} />
-
-
 
             <Redirect to="/" />
           </Switch>
         ) : (
           <Switch>
-            <Route path='/' exact component={ GuestHome } />
-            <Route path='/allFacts' component={AllFacts} />
+            <Route exact path='/' component={ GuestHome } />
+            {/* <Route path='/allFacts' component={AllFacts} /> */}
             <Route path='/discussions' component={Discussion} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
+            {/* <Route path='/addFact' component={AddFact} /> */}
           </Switch>
         )}
       </div>

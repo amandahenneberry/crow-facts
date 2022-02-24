@@ -36,12 +36,10 @@ router.get('/:id', async(req, res, next) => {
 // });
 
   //submit a fact 
-  router.post('/addFact', async(req, res) => {
+  router.post('/', async(req, res, next) => {
       try{
-        const {fact, source} = req.body;
-        await Fact.create({fact, source});
-        res.end();
-      } catch (err){
-        res.status(404).end()
+       res.status(201).send(await Fact.create(req.body))
+      }catch(error){
+        next(error)
       }
   })

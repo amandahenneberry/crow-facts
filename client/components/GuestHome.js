@@ -2,6 +2,8 @@ import axios from 'axios'
 import React from 'react'
 import {Howl} from 'howler'
 import { Link } from 'react-router-dom'
+import {connect} from 'react-redux'
+import { fetchFacts } from '../store/facts'
 // https://algorithmic-8ball.neocities.org/crow_caw.mp3
 
 const audioClip = {
@@ -85,4 +87,17 @@ class GuestHome extends React.Component{
 }
 
 // export default connect(mapState)(UserHome)
-export default (GuestHome)
+
+const mapState = (state) => {
+  return {
+    facts: state.factsReducer
+  };
+};
+
+const mapDispatch = (dispatch) => {
+  return {
+    getFacts: () => dispatch(fetchFacts())
+  };
+};
+
+export default connect(mapState, mapDispatch)(GuestHome)
