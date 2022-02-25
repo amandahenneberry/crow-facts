@@ -80,7 +80,6 @@ class UserHome extends React.Component{
     const username = this.props.username;
     return (
       <div id='main'>       
-       <h2><center>Welcome back {username}</center></h2>
         <div id='header'>
         <div class=".flex-parent-element space-between">
           <div class="flex-child-element">
@@ -105,8 +104,11 @@ class UserHome extends React.Component{
           </div>
           : 
           <div className='fact'>
+            <h2><center>Hey {username}</center></h2>
+          <h3>you know what to do.</h3>
+          <h4>[click the crow]</h4>
           <h1>{this.state.currentFact.fact}</h1>
-          <h2>click the crow</h2>
+
         </div>
       }
 

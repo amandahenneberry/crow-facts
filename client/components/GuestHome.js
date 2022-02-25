@@ -85,7 +85,7 @@ class GuestHome extends React.Component{
           :
             <div className='fact'>
               <h1>{this.state.currentFact.fact}</h1>
-              <h2>click the crow</h2>
+              <h2>click the crow.</h2>
             </div>
           }
           </div>

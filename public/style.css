@@ -13,14 +13,16 @@ a:hover {
   color: #ccf809;
   cursor: url('./img/cursor-bigger.png'), auto;
 }
-
+html{
+  height: 100%;
+}
 body {
   cursor: url('./img/cursor-bigger.png'), auto;
   font-family: monospace;
-  background: url('./img/crow_background.png');
+  background: url('./img/static2crow_background.png');
   background-attachment: scroll, local;  
   margin: auto;
-  height: 100vh;
+  height: 80vh;
   width: 100vw;
   background-attachment: fixed;
   letter-spacing: 0.03em;
@@ -63,7 +65,7 @@ nav a {
   border-color: white;
   text-decoration: none;
   font-size: 20px;
-  width: 33.33%;
+  width: 50%;
    /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
   text-align: center; 
   /* If you want the text to be centered */
@@ -124,6 +126,16 @@ td {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#footer {
+  padding: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* position:fixed;
+  bottom:0; */
 }
 
 #navbar {
@@ -213,7 +225,7 @@ td {
   border-radius: 90%;
   background-color: rgba(172, 255, 47, 0.479); /* Green */
   color: rgb(255, 254, 254);
-  border-color: rgb(255, 255, 255);
+  border-color: rgba(255, 255, 255, 0);
   padding: 20px;
   cursor: url('./img/cursor-bigger.png'), auto;
 
@@ -225,25 +237,24 @@ td {
 }
 
 .crow-button:hover {
-  background-color: rgba(255, 0, 0, 0.493);
-  /* background-image: url('./img/crow_hover.png'); */
+  background-color: rgba(0, 0, 255, 0.199);
   color: white;
   cursor: url('./img/cursor-bigger.png'), auto;
 }
 
 .fact {
   padding: 5px;
-  background-color: rgba(0, 0, 255, 0.199);
-  border: 1px solid rgb(251, 251, 252);
+  background-color: rgba(255, 0, 0, 0.493);
+  /* border: 1px solid rgb(251, 251, 252); */
   display: flex;
   flex-direction: column;
-  width: 600px;
+  width: 800px;
   min-width: auto;
   max-width: 150%;
 }
 
 .fact:hover{
-  background-color: rgba(255, 0, 0, 0.493);
+  background-color:  rgba(0, 0, 255, 0.199);
   color: white
 }
 
@@ -252,10 +263,13 @@ td {
   width: 50%;
   /* justify-content: space-between;  */
   align-items: baseline;
+  flex-shrink: 1;
 }
 
 .flex-child-element {
   flex: 1;
+  flex-shrink: 1;
+
   /* border: 2px solid rgb(251, 251, 252); */
   /* margin: 10px; */
   float: left;
@@ -264,6 +278,8 @@ td {
 
 .flex-child-element:first-child {
   margin-right: 20px;
+  flex-shrink: 1;
+
 }
 
 .space-evenly { 
