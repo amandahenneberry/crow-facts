@@ -2,8 +2,8 @@ import axios from 'axios'
 import React from 'react'
 import {Howl} from 'howler'
 import { Link } from 'react-router-dom'
-import {connect} from 'react-redux'
-import { fetchFacts } from '../store/facts'
+// import {connect} from 'react-redux'
+// import { fetchFacts } from '../store/facts'
 // https://algorithmic-8ball.neocities.org/crow_caw.mp3
 
 const audioClip = {
@@ -16,9 +16,10 @@ class GuestHome extends React.Component{
     super()
     this.state = {
       facts: [],
-      currentFact: {},
+      currentFact: {fact:'<<'},
       sound: false,
-      img: "./img/black-crow.png"
+      img: "./img/crow_button.png",
+      clicked: false
     }
     this.handleClick = this.handleClick.bind(this)
   }
@@ -30,7 +31,7 @@ class GuestHome extends React.Component{
   async componentDidMount () {
     const {data} = await axios.get('/api/facts')
     this.setState({
-      facts: data
+      facts: data,
     });
     console.log()
   }
@@ -43,12 +44,12 @@ class GuestHome extends React.Component{
     sound.play();
   }
   handleClick(){
+    this.setState({clicked: true})
     const index = Math.floor(Math.random()* this.state.facts.length);
     this.setState.sound = true;
     this.setState({currentFact: this.state.facts[index]});
     this.soundPlay(audioClip.sound);
     console.log('source??', this.state.facts[index].source);
-    this.setState.clicked = true;
   }
 
   alert(){
@@ -60,23 +61,33 @@ class GuestHome extends React.Component{
   render(){
     return (
       <div id='main'>
-        <div className='column container'>
         <div id='header'>
+          <div class=".flex-parent-element space-between">
+          <div class="flex-child-element">
           <button className="crow-button" type="button" onClick={() => this.handleClick()}><img src={this.state.img} 
           onMouseEnter={()=>{
-            this.setState({img:'/img/black-crow-hover.png'})
+            this.setState({img:'/img/crow_b_2.png'})
           }} 
           onMouseOut={()=>{
             this.setState({
-              img: '/img/black-crow.png'
+              img: '/img/crow_button.png'
             })
           }} width="250"></img></button>
-          <div>
-            <div className='fact'><h1>{this.state.currentFact.fact}</h1>
-            <h5><a href={this.state.currentFact.source} target="_blank">{this.state.currentFact.source}</a></h5>
-            <h3>click the crow for a new fact!</h3>
-          <h6>To join discussions, please <strong><em><a href='/login' target="_blank">login</a></em></strong> or <strong><em><a href='/signup' target="_blank">sign-up</a>!</em></strong></h6>
           </div>
+          <div class="flex-child-element">
+            {this.state.clicked === true ? 
+            <div className='fact'><h1>{this.state.currentFact.fact}</h1>
+            <h4>source: <a href={this.state.currentFact.source} target="_blank">{this.state.currentFact.source}</a></h4>
+            <h2>click the crow for a new fact!</h2>
+          <h3>To join discussions, please <strong><em><a href='/login' target="_blank">login</a></em></strong> or <strong><em><a href='/signup' target="_blank">sign-up</a>!</em></strong></h3>
+
+          </div>
+          :
+            <div className='fact'>
+              <h1>{this.state.currentFact.fact}</h1>
+              <h2>click the crow</h2>
+            </div>
+          }
           </div>
           </div>
           </div>
@@ -88,16 +99,17 @@ class GuestHome extends React.Component{
 
 // export default connect(mapState)(UserHome)
 
-const mapState = (state) => {
-  return {
-    facts: state.factsReducer
-  };
-};
+// const mapState = (state) => {
+//   return {
+//     facts: state.factsReducer
+//   };
+// };
 
-const mapDispatch = (dispatch) => {
-  return {
-    getFacts: () => dispatch(fetchFacts())
-  };
-};
+// const mapDispatch = (dispatch) => {
+//   return {
+//     getFacts: () => dispatch(fetchFacts())
+//   };
+// };
 
-export default connect(mapState, mapDispatch)(GuestHome)
+// export default connect(mapState, mapDispatch)(GuestHome)
+export default GuestHome

@@ -6,7 +6,6 @@ import {logout} from '../store'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
-    {/* <h1>CROW-FACTS</h1> */}
     <nav>
       {isLoggedIn ? (
         <div>
@@ -25,7 +24,6 @@ const Navbar = ({handleClick, isLoggedIn}) => (
         </div>
       )}
     </nav>
-    <hr />
   </div>
 )
 

@@ -14,11 +14,11 @@ class UserHome extends React.Component{
     super()
     this.state = {
       facts: [],
-      currentFact: {},
+      currentFact: {fact:'<<'},
       discussions: [],
       currentDis: {},
       sound: false,
-      img: "./img/black-crow.png",
+      img: "./img/crow_button.png",
       // discussLink:'',
       clicked: false,
       response: "",
@@ -70,9 +70,9 @@ class UserHome extends React.Component{
     // this.setState.discussLink = `/discussions`
     // this.setState({discussions: this.state.discussions[index]})
     console.log('source??', this.state.facts[index].source);
-    this.setState.clicked = true;
     this.setState.response = 'DISCUSS!!'
     this.setState.clickedText = ''
+    this.setState({clicked: true})
   }
   
 
@@ -80,28 +80,36 @@ class UserHome extends React.Component{
     const username = this.props.username;
     return (
       <div id='main'>       
-       <h3>Welcome back {username.toUpperCase()}!</h3>
-
-        <div className='column container'>
+       <h2><center>Welcome back {username}</center></h2>
         <div id='header'>
-        <div>
+        <div class=".flex-parent-element space-between">
+          <div class="flex-child-element">
         <button className="crow-button" type="button" onClick={() => this.handleClick()}><img src={this.state.img} 
           onMouseEnter={()=>{
-            this.setState({img:'/img/black-crow-hover.png'})
+            this.setState({img:'/img/crow_b_2.png'})
           }} 
           onMouseOut={()=>{
             this.setState({
-              img: '/img/black-crow.png'
+              img: '/img/crow_button.png'
             })
           }} width="250"></img></button>
-          <div>
-            <div className ='fact'> <h1>{this.state.currentFact.fact}</h1>
-            <h5><a href={this.state.currentFact.source} target="_blank">{this.state.currentFact.source}</a></h5>
-            <h3>{this.state.clickedText}</h3>
+          </div>
+          <div class="flex-child-element">
+          {this.state.clicked === true ? 
+            <div className ='fact'> 
+            <h1>{this.state.currentFact.fact}</h1>
+            <h4>source:<a href={this.state.currentFact.source} target="_blank">{this.state.currentFact.source}</a></h4>
+            <h2>{this.state.clickedText}</h2>
             <p><Link to={'./discussions'}>Discuss!</Link></p>
           {/* <h6>To join discussions, please <strong><em><a href='/login' target="_blank">login</a></em></strong> or <strong><em><a href='/signup' target="_blank">sign-up</a>!</em></strong></h6> */}
           </div>
-          </div>
+          : 
+          <div className='fact'>
+          <h1>{this.state.currentFact.fact}</h1>
+          <h2>click the crow</h2>
+        </div>
+      }
+
           </div>
         </div>
         </div>
