@@ -13,12 +13,12 @@ class Discussion extends React.Component{
     }
   }
       render(){
-        const discussion = this.props.discussion;
+        const discussion = this.props.discussion || [];
         console.log(this.props.discussion)
         return (
           <div>
               <h1>Discussion Page Placeholder...</h1>
-              {/* <h2>{discussion.topic}</h2> */}
+              <h2>{discussion.topic}</h2>
           </div>
       );
     }
@@ -27,13 +27,13 @@ class Discussion extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    discussion: state.singleDiscussion
+    discussion: state.singleDisReducer
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadSingleDiscussion: (discussionId) => dispatch(fetchSingleDiscussion(discussionIdnp))
+    loadSingleDiscussion: (id) => dispatch(fetchSingleDiscussion(id))
   }
 }
 

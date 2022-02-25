@@ -9,12 +9,21 @@ import AddFact from './components/AddFact';
 import Discussion from './components/Discussion';
 import {me} from './store'
 
+import List_Dis from './components/List_Dis';
+import AllDiscussions from './components/AllDiscussions';
+
+import {fetchFacts} from './store/facts';
+import {fetchDis} from './store/discussions'
+// import {fetchSingleDiscussion} from './store/singleDiscussion'
+
 /**
  * COMPONENT
  */
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData()
+    this.props.loadFacts();
+    this.props.loadDiscussions();
   }
 
   render() {
@@ -25,7 +34,7 @@ class Routes extends Component {
         {isLoggedIn ? (
           <Switch>
             <Route exact path='/' component={UserHome} />
-            <Route path='/discussions' component={Discussion} />
+            {/* <Route path='/discussions' component={AllDiscussions} /> */}
             <Route path='/allFacts' component={AllFacts} />
             <Route path='/addFact' component={AddFact} />
 
@@ -35,10 +44,11 @@ class Routes extends Component {
           <Switch>
             <Route exact path='/' component={ GuestHome } />
             {/* <Route path='/allFacts' component={AllFacts} /> */}
-            <Route path='/discussions' component={Discussion} />
+            <Route exact path='/discussions' component={AllDiscussions} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             {/* <Route path='/addFact' component={AddFact} /> */}
+            <Route path="/discussions/:discussionId" component={Discussion} />
           </Switch>
         )}
       </div>
@@ -61,10 +71,12 @@ const mapDispatch = dispatch => {
   return {
     loadInitialData() {
       dispatch(me())
-    }
+    },
+    loadFacts: ()=>dispatch(fetchFacts()),
+    loadDiscussions: ()=>dispatch(fetchDis())
   }
 }
 
 // The `withRouter` wrapper makes sure that updates are not blocked
 // when the url changes
-export default withRouter(connect(mapState, mapDispatch)(Routes))
+export default connect(mapState, mapDispatch)(Routes)

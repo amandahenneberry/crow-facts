@@ -7,7 +7,7 @@ module.exports = router;
 //get all facts
 router.get("/", async (req, res, next) => {
     try {
-      const facts = await Fact.findAll();
+      const facts = await Fact.findAll({include: {all:true}});
       res.json(facts);
     } catch (err) {
       next(err);

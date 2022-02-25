@@ -69,7 +69,7 @@ class UserHome extends React.Component{
     this.soundPlay(audioClip.sound);
     // this.setState.discussLink = `/discussions`
     // this.setState({discussions: this.state.discussions[index]})
-    console.log('source??', this.state.facts[index].source);
+    // console.log('source??', this.state.facts[index].source);
     this.setState.response = 'DISCUSS!!'
     this.setState.clickedText = ''
     this.setState({clicked: true})
@@ -77,6 +77,8 @@ class UserHome extends React.Component{
   
 
   render() {
+    // console.log('CURR FACT!!!:', this.state.currentFact.fact)
+    // console.log('CURR DIS!!!:', this.state.currentDis.topic)
     const username = this.props.username;
     return (
       <div id='main'>       

@@ -9,10 +9,10 @@ const setSingleDiscussion = (discussion) => {
   }
 }
 
-export const fetchSingleDiscussion = (discussionId) => {
+export const fetchSingleDiscussion = (id) => {
   return async (dispatch) => {
     try {
-      const {data} = await axios.get(`/api/discussions/${discussionId}`)
+      const {data} = await axios.get(`/api/discussions/${id}`)
       dispatch(setSingleDiscussion(data))
     } catch (err) {
       console.log(err)

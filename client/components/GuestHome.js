@@ -33,7 +33,6 @@ class GuestHome extends React.Component{
     this.setState({
       facts: data,
     });
-    console.log()
   }
 
   soundPlay(src){
@@ -49,7 +48,8 @@ class GuestHome extends React.Component{
     this.setState.sound = true;
     this.setState({currentFact: this.state.facts[index]});
     this.soundPlay(audioClip.sound);
-    console.log('source??', this.state.facts[index].source);
+    // console.log('source??', this.state.facts[index].source);
+    console.log('CURR FACT:', this.state.currentFact);
   }
 
   alert(){
@@ -59,6 +59,7 @@ class GuestHome extends React.Component{
   }
 
   render(){
+
     return (
       <div id='main'>
         <div id='header'>

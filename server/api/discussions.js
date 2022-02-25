@@ -2,14 +2,13 @@ const router = require('express').Router();
 const User = require('../db/models/User');
 const Discussion = require('../db/models/Discussion');
 const Fact = require('../db/models/Fact')
-module.exports = router;
 
 //get ALL discussions
 router.get('/', async (req, res, next) => {
     try {
       const discussions = await Discussion.findAll({
         where: req.query,
-        attributes: ['topic'],
+        attributes: ['factId'],
         include: [Fact]
       })
       res.json(discussions)
@@ -33,3 +32,5 @@ router.get('/', async (req, res, next) => {
     }
   })
   
+
+  module.exports = router;

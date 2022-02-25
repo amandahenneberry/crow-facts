@@ -13,10 +13,8 @@ a:hover {
   color: #ccf809;
   cursor: url('./img/cursor-bigger.png'), auto;
 }
-html{
-  height: 100%;
-}
-body {
+
+html, body {
   cursor: url('./img/cursor-bigger.png'), auto;
   font-family: monospace;
   background: url('./img/static2crow_background.png');
@@ -120,20 +118,22 @@ td {
   width: 100%;
 }
 
-#header {
+header {
   padding: 50px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  content: url(img/brurBanner3b.png);
 }
 
-#footer {
+footer {
   padding: 50px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  content: url(img/footer.png);
   /* position:fixed;
   bottom:0; */
 }
