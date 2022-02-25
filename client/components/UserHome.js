@@ -77,8 +77,8 @@ class UserHome extends React.Component{
   
 
   render() {
-    // console.log('CURR FACT!!!:', this.state.currentFact.fact)
-    // console.log('CURR DIS!!!:', this.state.currentDis.topic)
+    console.log('CURR FACT!!!:', this.state.currentFact.fact)
+    console.log('CURR DIS!!!:', this.state.currentDis)
     const username = this.props.username;
     return (
       <div id='main'>       

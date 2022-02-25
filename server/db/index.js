@@ -7,10 +7,10 @@ const Fact = require('./models/Fact')
 const Discussion = require('./models/Discussion')
 
 //associations could go here!
-// Fact.hasOne(Discussion);
-Fact.Discussion = Discussion.belongsTo(Fact);
+Fact.hasOne(Discussion);
+Discussion.belongsTo(Fact);
 // Fact.hasOne(Discussion, {as: 'topic'});
-// Discussion.belongsTo(Fact, {as: 'topic'});
+// const Key = Discussion.belongsTo(Fact, {as: 'key'});
 
 module.exports = {
   db,
