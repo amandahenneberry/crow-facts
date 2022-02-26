@@ -16,8 +16,8 @@ class List_Dis extends React.Component {
         <h1>DISCUSSION list..</h1>
         {
           discussions.map(discussion => (
-            <div key={discussion.id}>
-              <h2>{discussion.topic}</h2>
+            <div key={discussion.factId}>
+              <h2>{discussion.fact.fact}</h2>
 
             </div>
           ))

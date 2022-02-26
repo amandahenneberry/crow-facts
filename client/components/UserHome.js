@@ -101,7 +101,7 @@ class UserHome extends React.Component{
             <h1>{this.state.currentFact.fact}</h1>
             <h4>source:<a href={this.state.currentFact.source} target="_blank">{this.state.currentFact.source}</a></h4>
             <h2>{this.state.clickedText}</h2>
-            <p><Link to={'./discussions'}>Discuss!</Link></p>
+            <p><Link to={`/discussions`}>Discuss!</Link></p>
           {/* <h6>To join discussions, please <strong><em><a href='/login' target="_blank">login</a></em></strong> or <strong><em><a href='/signup' target="_blank">sign-up</a>!</em></strong></h6> */}
           </div>
           : 

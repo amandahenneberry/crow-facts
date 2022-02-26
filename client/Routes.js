@@ -37,6 +37,9 @@ class Routes extends Component {
             {/* <Route path='/discussions' component={AllDiscussions} /> */}
             <Route path='/allFacts' component={AllFacts} />
             <Route path='/addFact' component={AddFact} />
+            <Route exact path='/discussions' component={AllDiscussions} />
+            <Route path="/discussions/:discussionId" component={Discussion} />
+
 
             <Redirect to="/" />
           </Switch>
@@ -44,11 +47,9 @@ class Routes extends Component {
           <Switch>
             <Route exact path='/' component={ GuestHome } />
             {/* <Route path='/allFacts' component={AllFacts} /> */}
-            <Route exact path='/discussions' component={AllDiscussions} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             {/* <Route path='/addFact' component={AddFact} /> */}
-            <Route path="/discussions/:discussionId" component={Discussion} />
           </Switch>
         )}
       </div>

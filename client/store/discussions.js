@@ -15,7 +15,7 @@ export const setDIS = (discussions) => ({
 export const fetchDis = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get("/api/discussions");
+      const {data} = await axios.get("/api/discussions");
       dispatch(setDIS(data));
     } catch (err) {
       console.log(err);
