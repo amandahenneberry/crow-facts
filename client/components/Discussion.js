@@ -17,7 +17,6 @@ class Discussion extends React.Component{
         console.log(this.props.discussion)
         return (
           <div>
-              <h1>Discussion Page Placeholder...</h1>
               <h2>{discussion.topic}</h2>
           </div>
       );

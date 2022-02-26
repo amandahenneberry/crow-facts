@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import {authenticate} from '../store'
 import { Link } from 'react-router-dom'
@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom'
  * COMPONENT
  */
 const AuthForm = props => {
-  const {name, displayName, handleSubmit, error} = props
+  const {name, displayName, handleSubmit, error} = props;
+  const [selectedImage, setSelectedImage] = useState(null);
 
   return (
     <div>
@@ -24,6 +25,40 @@ const AuthForm = props => {
           </label>
           <input name="password" type="password" />
         </div>
+
+        <div>
+          <label htmlFor="email">
+            <small>Email</small>
+          </label>
+          <input name="email" type="email" />
+        </div>
+
+        {/* IMAGE UPLOAD */}
+        <div>
+      {selectedImage && (
+        <div>
+        <img alt="not fount" width={"250px"} src={URL.createObjectURL(selectedImage)} />
+        <br />
+        <button onClick={()=>setSelectedImage(null)}>Remove</button>
+        </div>
+      )}
+      <br />
+     
+      <br /> 
+      <label htmlFor="image">
+            <small>Upload a pic!</small>
+          </label>
+      <input
+        type="file"
+        name="image"
+        onChange={(event) => {
+          console.log(event.target.files[0]);
+          setSelectedImage(event.target.files[0]);
+        }}
+      />
+    </div>
+
+
         <div>
           <button type="submit">{displayName}</button>
         </div>
@@ -67,7 +102,9 @@ const mapDispatch = dispatch => {
       const formName = evt.target.name
       const username = evt.target.username.value
       const password = evt.target.password.value
-      dispatch(authenticate(username, password, formName))
+      const email = evt.target.email.value
+      const image = evt.target.image.value
+      dispatch(authenticate(username, password, email, image, formName))
     }
   }
 }

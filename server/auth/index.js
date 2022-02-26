@@ -15,9 +15,9 @@ router.post('/signup', async (req, res, next) => {
     //PREVENT INJECTION ATTACKS!!:
     // user NOW cannot malicously add data, by deconstructing req.body
     //upon User.Create:
-    const { username, password } = req.body
+    const { username, password, email, image} = req.body
 
-    const user = await User.create({ username, password })
+    const user = await User.create({ username, password, email, image })
     res.send({token: await user.generateToken()})
   } catch (err) {
     if (err.name === 'SequelizeUniqueConstraintError') {

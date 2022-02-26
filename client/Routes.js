@@ -12,16 +12,17 @@ import {me} from './store'
 import List_Dis from './components/List_Dis';
 import AllDiscussions from './components/AllDiscussions';
 
+import UserUpdate from './components/UserUpdate';
+
 import {fetchFacts} from './store/facts';
 import {fetchDis} from './store/discussions'
-// import {fetchSingleDiscussion} from './store/singleDiscussion'
 
 /**
  * COMPONENT
  */
 class Routes extends Component {
   componentDidMount() {
-    this.props.loadInitialData()
+    this.props.loadInitialData();
     this.props.loadFacts();
     this.props.loadDiscussions();
   }
@@ -46,10 +47,9 @@ class Routes extends Component {
         ) : (
           <Switch>
             <Route exact path='/' component={ GuestHome } />
-            {/* <Route path='/allFacts' component={AllFacts} /> */}
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
-            {/* <Route path='/addFact' component={AddFact} /> */}
+            {/* <Route path="/userInfo" component={UserUpdate} /> */}
           </Switch>
         )}
       </div>
