@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require ("../db");
-const Fact = require('./Fact');
+// const Fact = require('./Fact');
 
 const Discussion = db.define("discussion", {
     topic: Sequelize.STRING,
