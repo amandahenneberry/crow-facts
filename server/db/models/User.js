@@ -50,14 +50,24 @@ User.prototype.generateToken = function() {
 /**
  * classMethods
  */
-User.authenticate = async function({ username, password }){
-    const user = await this.findOne({where: { username }})
+User.authenticateLogin = async function({ email, password }){
+    const user = await this.findOne({where: { email }})
     if (!user || !(await user.correctPassword(password))) {
       const error = Error('Incorrect username/password');
       error.status = 401;
       throw error;
     }
     return user.generateToken();
+};
+
+User.authenticateSignUp = async function({ email, password }){
+  const user = await this.findOne({where: { email }})
+  if (!user || !(await user.correctPassword(password))) {
+    const error = Error('Incorrect username/password');
+    error.status = 401;
+    throw error;
+  }
+  return user.generateToken();
 };
 
 User.findByToken = async function(token) {

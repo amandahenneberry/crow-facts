@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
-import {authenticate} from '../store'
+import {authenticateLogin, authenticateSignUp} from '../store'
 import { Link } from 'react-router-dom'
 /**
  * COMPONENT
@@ -16,10 +16,10 @@ const AuthForm = props => {
       <center>
       <form onSubmit={handleSubmit} name={name}>
         <div>
-          <label htmlFor="username">
-            <small>Username</small>
+          <label htmlFor="email">
+            <small>Email</small>
           </label>
-          <input name="username" type="text" />
+          <input name="email" type="email" />
         </div>
         <br />
         <div>
@@ -34,10 +34,10 @@ const AuthForm = props => {
         
          <div>
             
-          <label htmlFor="email">
-            <small>Email</small>
+          <label htmlFor="username">
+            <small>Username</small>
           </label>
-          <input name="email" type="email" />
+          <input name="username" type="text" />
       
         <br />
          {selectedImage && (
@@ -104,19 +104,33 @@ const mapSignup = state => {
   }
 }
 
-const mapDispatch = dispatch => {
+const mapDispatchLogin = dispatch => {
   return {
     handleSubmit(evt) {
       evt.preventDefault()
       const formName = evt.target.name
-      const username = evt.target.username.value
       const password = evt.target.password.value
       const email = evt.target.email.value
-      const image = evt.target.image.value
-      dispatch(authenticate(username, password, email, image, formName))
+  
+      dispatch(authenticateLogin(email, password, formName))
     }
   }
 }
 
-export const Login = connect(mapLogin, mapDispatch)(AuthForm)
-export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
+const mapDispatchSignUp = dispatch => {
+  return {
+    handleSubmit(evt) {
+      evt.preventDefault()
+      const formName = evt.target.name
+      const password = evt.target.password.value
+      const email = evt.target.email.value
+      const username = evt.target.username.value
+      const image = evt.target.image.value
+      dispatch(authenticateSignUp(email, password, username, image, formName))
+    }
+  }
+}
+
+
+export const Login = connect(mapLogin, mapDispatchLogin)(AuthForm)
+export const Signup = connect(mapSignup, mapDispatchSignUp)(AuthForm)
