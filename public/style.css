@@ -4,18 +4,19 @@
 
 a {
   text-decoration: none;
-  color: red;
+  color: #ccf809;
+  padding: 20px;
   transition: color 0.5s ease;
-  cursor: url('./img/cursor-bigger.png'), auto;
+  cursor: url('./img/cursor-print.png'), auto;
 }
 
 a:hover {
-  color: #ccf809;
-  cursor: url('./img/cursor-bigger.png'), auto;
+  color: red;
+  cursor: url('./img/cursor-print.png'), auto;
 }
 
 html, body {
-  cursor: url('./img/cursor-bigger.png'), auto;
+  cursor: url('./img/cursor-print.png'), auto;
   font-family: monospace;
   background: url('./img/static2crow_background.png');
   background-attachment: scroll, local;  
@@ -29,7 +30,7 @@ html, body {
 i {
   color: #00aaaa;
   font-size: 2em;
-  cursor: url('./img/cursor-bigger.png'), auto;
+  cursor: url('./img/cursor-print.png'), auto;
 }
 
 /* img {
@@ -67,17 +68,17 @@ nav a {
    /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
   text-align: center; 
   /* If you want the text to be centered */
-  cursor: url('./img/cursor-bigger.png'), auto;
+  cursor: url('./img/cursor-print.png'), auto;
 }
 
 nav a:hover{
-  cursor: url('./img/cursor-bigger.png'), auto;
+  cursor: url('./img/cursor-print.png'), auto;
   background-color: rgba(0, 4, 5, 0.233);
 
 }
 
 nav a.active{
-  cursor: url('./img/cursor-bigger.png'), auto;
+  cursor: url('./img/cursor-print.png'), auto;
   background-color: #04AA6D;
 }
 form div {
@@ -92,13 +93,13 @@ table {
 
 
 i.fa {
-  cursor: url('./img/cursor-bigger.png'), auto;
+  cursor: url('./img/cursor-print.png'), auto;
   font-size: 2em;
   transition: color 0.2s ease;
 }
 
 i.fa:hover {
-  cursor: url('./img/cursor-bigger.png'), auto;
+  cursor: url('./img/cursor-print.png'), auto;
   color: #00aa006c;
 }
 
@@ -146,7 +147,7 @@ footer {
   color: gray;
   /* align-items: center;
   justify-content: space-evenly; */
-  cursor: url('./img/cursor-bigger.png'), auto;
+  cursor: url('./img/cursor-print.png'), auto;
 }
 
 .active {
@@ -156,12 +157,12 @@ footer {
 .author {
   align-items: center;
   padding: 15px;
-  cursor: url('./img/cursor-bigger.png'), auto;
+  cursor: url('./img/cursor-print.png'), auto;
 }
 
 .author:hover {
   background-color: #eee;
-  cursor: url('./img/cursor-bigger.png'), auto;
+  cursor: url('./img/cursor-print.png'), auto;
 }
 
 .center {
@@ -227,19 +228,19 @@ footer {
   color: rgb(255, 254, 254);
   border-color: rgba(255, 255, 255, 0);
   padding: 20px;
-  cursor: url('./img/cursor-bigger.png'), auto;
+  cursor: url('./img/cursor-print.png'), auto;
 
 }
 
 .crow-button {
   transition-duration: 0.4s;
-  cursor: url('./img/cursor-bigger.png'), auto;
+  cursor: url('./img/cursor-print.png'), auto;
 }
 
 .crow-button:hover {
   background-color: rgba(0, 0, 255, 0.199);
   color: white;
-  cursor: url('./img/cursor-bigger.png'), auto;
+  cursor: url('./img/cursor-print.png'), auto;
 }
 
 .fact {
@@ -254,7 +255,7 @@ footer {
 }
 
 .fact:hover{
-  background-color:  rgba(0, 0, 255, 0.199);
+  background-color:  rgba(0, 0, 255, 0.342);
   color: white
 }
 

@@ -43,6 +43,7 @@ export const addComment = (id, comment) => {
 ///
 
 const initialState = {comments: []}
+// const initialState = {comments: [], facts}
 
  const singleDisReducer = (state = initialState, action) => {
   switch (action.type) {
