@@ -22,7 +22,7 @@ class UserHome extends React.Component{
       // discussLink:'',
       clicked: false,
       response: "",
-      clickedText: 'click the crow for a fact!'
+      clickedText: '<< click the crow for a a new fact.'
     }
     this.handleClick = this.handleClick.bind(this)
   }
@@ -81,8 +81,10 @@ class UserHome extends React.Component{
     console.log('CURR DIS!!!:', this.state.currentDis)
     const username = this.props.username;
     return (
-      <div id='main'>       
-        <div id='header'>
+      <div id='app'>     
+    <br></br> 
+    <br></br>
+    <br></br> 
         <div class=".flex-parent-element space-between">
           <div class="flex-child-element">
         <button className="crow-button" type="button" onClick={() => this.handleClick()}><img src={this.state.img} 
@@ -100,8 +102,8 @@ class UserHome extends React.Component{
             <div className ='fact'> 
             <h1>{this.state.currentFact.fact}</h1>
             <h4>source:<a href={this.state.currentFact.source} target="_blank">{this.state.currentFact.source}</a></h4>
-            <h2>{this.state.clickedText}</h2>
-            <h3><center><Link to={`/discussions/${this.state.currentDis.factId}`}>Discuss!</Link></center></h3>
+            <h2><center>|<Link to={`/discussions/${this.state.currentDis.factId}`}>Discuss!</Link>|</center></h2>
+            <h3>{this.state.clickedText}</h3>
           {/* <h6>To join discussions, please <strong><em><a href='/login' target="_blank">login</a></em></strong> or <strong><em><a href='/signup' target="_blank">sign-up</a>!</em></strong></h6> */}
           </div>
           : 
@@ -113,10 +115,11 @@ class UserHome extends React.Component{
 
         </div>
       }
-
-          </div>
         </div>
         </div>
+        <br></br> 
+        <br></br>
+        <br></br> 
       </div>
     )
   }

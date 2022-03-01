@@ -61,8 +61,11 @@ class GuestHome extends React.Component{
   render(){
 
     return (
-      <div id='main'>
-        <div id='header'>
+      <div id='app'>
+        <br></br>
+        <br></br> 
+        <br></br>
+        <br></br>
           <div class=".flex-parent-element space-between">
           <div class="flex-child-element">
           <button className="crow-button" type="button" onClick={() => this.handleClick()}><img src={this.state.img} 
@@ -91,8 +94,6 @@ class GuestHome extends React.Component{
           }
           </div>
           </div>
-          </div>
-          {/* <span>To join discussions, please <strong><em><a href='/login' target="_blank">login</a></em></strong> or <strong><em><a href='/signup' target="_blank">sign-up</a>!</em></strong></span> */}
       </div>
     )
   }

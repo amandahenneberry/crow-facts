@@ -11,6 +11,8 @@ const AuthForm = props => {
 
   return (
     <div>
+       {name === 'signup'? 
+      <div><center><h3><Link to='/'>click to go back to facts...</Link> </h3> </center></div>:<b />}
       <center>
       <form onSubmit={handleSubmit} name={name}>
         <div>
@@ -19,46 +21,51 @@ const AuthForm = props => {
           </label>
           <input name="username" type="text" />
         </div>
+        <br />
         <div>
           <label htmlFor="password">
             <small>Password</small>
           </label>
           <input name="password" type="password" />
         </div>
-
-        <div>
+        <br />
+       
+        {name === 'signup'? 
+        
+         <div>
+            
           <label htmlFor="email">
             <small>Email</small>
           </label>
           <input name="email" type="email" />
-        </div>
-
-        {/* IMAGE UPLOAD */}
-        <div>
-      {selectedImage && (
-        <div>
-        <img alt="not fount" width={"250px"} src={URL.createObjectURL(selectedImage)} />
+      
         <br />
-        <button onClick={()=>setSelectedImage(null)}>Remove</button>
-        </div>
-      )}
-      <br />
-     
-      <br /> 
-      <label htmlFor="image">
-            <small>Upload a pic!</small>
-          </label>
-      <input
-        type="file"
-        name="image"
-        onChange={(event) => {
-          console.log(event.target.files[0]);
-          setSelectedImage(event.target.files[0]);
-        }}
-      />
-    </div>
-
-
+         {selectedImage && (
+           <div>
+           <img alt="not fount" width={"250px"} src={URL.createObjectURL(selectedImage)} />
+           <br />
+           <button onClick={()=>setSelectedImage(null)}>Remove</button>
+           </div>
+         )}
+         <br />
+        
+         <br /> 
+         <label htmlFor="image">
+               <small>Upload a pic!</small>
+             </label>
+         <input
+           type="file"
+           name="image"
+           onChange={(event) => {
+             console.log(event.target.files[0]);
+             setSelectedImage(event.target.files[0]);
+           }}
+         />
+         <br />
+       </div>:
+          <br />
+        }
+        <br></br>
         <div>
           <button type="submit">{displayName}</button>
         </div>
@@ -66,6 +73,8 @@ const AuthForm = props => {
       </form>
       </center>
       <div><center><h3><Link to='/'>Cancel</Link> </h3> </center></div>
+      <br />
+      <br />
     </div>
    
 
